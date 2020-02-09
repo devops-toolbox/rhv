@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+rhv_repos_create: "{{ _rhv_repos_create['all']
+  | union ( _rhv_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+rhv_repos_download: "{{ _rhv_repos_download['all']
+  | union ( _rhv_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+rhv_templates_copy: "{{ _rhv_templates_copy['all']
+  | union ( _rhv_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+rhv_services_enable: "{{ _rhv_services_enable['all']
+  | union ( _rhv_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+rhv_selinux_enable: "{{ _rhv_selinux_enable['all']
+  | union ( _rhv_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+rhv_packages_remove: "{{ _rhv_packages_remove['all']
+  | union ( _rhv_packages_remove[my_os]
+  | default([]) ) }}"
+rhv_packages_repos: "{{ _rhv_packages_repos['all']
+  | union ( _rhv_packages_repos[my_os]
+  | default([]) ) }}"
+rhv_packages_prereq: "{{ _rhv_packages_prereq['all']
+  | union ( _rhv_packages_prereq[my_os]
+  | default([]) ) }}"
+rhv_packages_install: "{{ _rhv_packages_install['all']
+  | union ( _rhv_packages_install[my_os]
+  | default([]) ) }}"

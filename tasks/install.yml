@@ -1,0 +1,27 @@
+---
+# Install rhv packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ rhv_packages_remove }}"
+    state: absent
+  become: true
+  when: rhv_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ rhv_packages_repos }}"
+    state: "{{ rhv_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ rhv_packages_prereq }}"
+    state: "{{ rhv_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ rhv_packages_install }}"
+    state: "{{ rhv_packages_state }}"
+  become: true
