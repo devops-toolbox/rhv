@@ -8,10 +8,10 @@ rhv: Rhv
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.rhv](https://galaxy.ansible.com/devops-toolbox.rhv)
+[https://galaxy.ansible.com/devopstoolbox.rhv](https://galaxy.ansible.com/devopstoolbox.rhv)
 
 ```bash
-ansible-galaxy install devops-toolbox.rhv
+ansible-galaxy install devopstoolbox.rhv
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: rhv is configured
       import_role:
-        name: devops-toolbox.rhv
+        name: devopstoolbox.rhv
       vars:
         rhv_packages_state: present
         rhv_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
